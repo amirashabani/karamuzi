@@ -10,25 +10,21 @@ fetch(url)
             console.log(data)
             let chartData = {
                 labels: data['dates'],
-                datasets: [
-                    {
-                        label: data['topics'][0]['title'],
-                        data: data['topics'][0]['points'],
-                        backgroundColor: 'transparent',
-                        borderColor: colors[0],
-                        borderWidth: 1,
-                        pointBackgroundColor: colors[0]
-                    },
-                    {
-                        label: data['topics'][1]['title'],
-                        data: data['topics'][1]['points'],
-                        backgroundColor: 'transparent',
-                        borderColor: colors[1],
-                        borderWidth: 1,
-                        pointBackgroundColor: colors[1]
-                    }
-                ]
-            };
+                datasets: []
+            }
+
+            data['topics'].forEach(function(value, i) {
+                console.log(value, i)
+                chartData['datasets'].push({
+                    label: value['title'],
+                    data: value['points'],
+                    backgroundColor: 'transparent',
+                    borderColor: colors[i],
+                    borderWidth: 1,
+                    pointBackgroundColor: colors[i]
+
+                })
+            })
               
             if (chLine) {
                 new Chart(chLine,{
