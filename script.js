@@ -20,7 +20,7 @@ fetch(url)
                         pointBackgroundColor: colors[0]
                     },
                     {
-                        label: data['topics'][0]['title'],
+                        label: data['topics'][1]['title'],
                         data: data['topics'][1]['points'],
                         backgroundColor: 'transparent',
                         borderColor: colors[1],
