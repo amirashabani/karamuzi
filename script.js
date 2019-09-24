@@ -14,7 +14,6 @@ fetch(url)
             }
 
             data['topics'].forEach(function(value, i) {
-                console.log(value, i)
                 chartData['datasets'].push({
                     label: value['title'],
                     data: value['points'],
@@ -39,7 +38,7 @@ fetch(url)
                                 }]
                             },
                             legend: {
-                                position: 'right',
+                                position: 'top',
                                 labels: {
                                     boxWidth: 5
                                 }
