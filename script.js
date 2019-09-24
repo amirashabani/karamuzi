@@ -43,7 +43,10 @@ fetch(url)
                                 }]
                             },
                             legend: {
-                                position: 'right'
+                                position: 'right',
+                                labels: {
+                                    boxWidth: 5
+                                }
                             }
                         }
                     }
