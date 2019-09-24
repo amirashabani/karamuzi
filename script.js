@@ -12,6 +12,7 @@ fetch(url)
                 labels: data['dates'],
                 datasets: [
                     {
+                        label: data['topics'][0]['title'],
                         data: data['topics'][0]['points'],
                         backgroundColor: 'transparent',
                         borderColor: colors[0],
@@ -19,6 +20,7 @@ fetch(url)
                         pointBackgroundColor: colors[0]
                     },
                     {
+                        label: data['topics'][0]['title'],
                         data: data['topics'][1]['points'],
                         backgroundColor: 'transparent',
                         borderColor: colors[1],
@@ -41,7 +43,7 @@ fetch(url)
                                 }]
                             },
                             legend: {
-                                display: false
+                                position: 'right'
                             }
                         }
                     }
