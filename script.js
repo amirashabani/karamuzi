@@ -16,55 +16,55 @@ let r = {
 
 function draw_chart(url) {
     fetch(url)
-    .then((resp) => resp.json())
-    .then(
-        function(data) {
-            chartData['labels'] = data['dates']
+        .then((resp) => resp.json())
+        .then(
+            function (data) {
+                chartData['labels'] = data['dates']
 
-            chartData['datasets'] = []
+                chartData['datasets'] = []
 
-            data['topics'].forEach(function(value, i) {
-                chartData['datasets'].push({
-                    label: value['title'],
-                    data: value['points'],
-                    backgroundColor: 'transparent',
-                    borderColor: colors[i],
-                    borderWidth: 1,
-                    pointBackgroundColor: colors[i]
+                data['topics'].forEach(function (value, i) {
+                    chartData['datasets'].push({
+                        label: value['title'],
+                        data: value['points'],
+                        backgroundColor: 'transparent',
+                        borderColor: colors[i],
+                        borderWidth: 1,
+                        pointBackgroundColor: colors[i]
 
+                    })
                 })
-            })
 
-            if (chart) {
-                new Chart(chart,{
-                    type: 'line',
-                    data: chartData,
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                beginAtZero: false
+                if (chart) {
+                    new Chart(chart, {
+                        type: 'line',
+                        data: chartData,
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: false
+                                    }
+                                }]
+                            },
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    boxWidth: 5
                                 }
-                            }]
-                        },
-                        legend: {
-                            position: 'top',
-                            labels: {
-                                boxWidth: 5
-                            }
-                        },
-                        events: ['click'],
-                        onClick: clicked
-                    }
-                });
+                            },
+                            events: ['click'],
+                            onClick: clicked
+                        }
+                    });
+                }
             }
-        }
-    )
-    .catch(
-        function(error) {
-            console.error(error)
-        }
-    )
+        )
+        .catch(
+            function (error) {
+                console.error(error)
+            }
+        )
 }
 
 function create_url(protocol, domain, port, path, start, end, step) {
@@ -86,26 +86,25 @@ $(".closeAsideNav i").click(function () {
     $(".mainDashboard").removeClass("leftVerticalMenu");
     $(".asideNavbar").addClass("closeAsideNavbar");
     $(".mainDashboard").addClass("wideVerticalMenu");
-  });
-  
-  $(".openAsideNav i").click(function () {
+});
+
+$(".openAsideNav i").click(function () {
     $(".asideNavbar").removeClass("closeAsideNavbar");
     $(".mainDashboard").removeClass("wideVerticalMenu");
     $(".asideNavbar").addClass("openAsideNavbar");
     $(".mainDashboard").addClass("leftVerticalMenu");
-  });
-  
-  $(".closeAsideNav i").click(function () {
+});
+
+$(".closeAsideNav i").click(function () {
     $(".asideNavbar").removeClass("openAsideNavbar");
     $(".mainDashboard").removeClass("leftVerticalMenu");
     $(".asideNavbar").addClass("closeAsideNavbar");
     $(".mainDashboard").addClass("wideVerticalMenu");
-  });
-  
-  $(".asideNavbarItems li a").click(function () {
+});
+
+$(".asideNavbarItems li a").click(function () {
     $(".asideNavbar").removeClass("closeAsideNavbar");
     $(".mainDashboard").removeClass("wideVerticalMenu");
     $(".asideNavbar").addClass("openAsideNavbar");
     $(".mainDashboard").addClass("leftVerticalMenu");
-  });
-  
+});
