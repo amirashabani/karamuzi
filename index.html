@@ -3,16 +3,68 @@
     <head>
         <title>Chart</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/bootstrap-rtl.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/bootstrap-reboot.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" type="text/css">
+        <script src="https://kit.fontawesome.com/ac39a0bb2b.js"></script>
     </head>
     <body>
+            <section class="asideNavbar" id="asideNavbar">
+                    <div class="profile">
+                        <div class="profileImg">
+                            <img src="assets/img/profile.png" alt="alt">
+                        </div>
+                        <div class="profileName">
+                            <span>دکتر جلالی</span>
+                        </div>
+                    </div>
+                    <ul class="asideNavbarItems">
+                        <li>
+                            <a class="activeMenu" href="#">
+                                <img uk-tooltip="title: داشبورد; pos: left" src="assets/img/dashboard.png" alt="ALT">
+                                <span>داشبورد</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img uk-tooltip="title: تنظیمات; pos: left" src="assets/img/gear.png" alt="ALT">
+                                <span>تنظیمات</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img uk-tooltip="title: خروج; pos: left" src="assets/img/logout.png" alt="ALT">
+                                <span>خروج</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <div class="mainDashboard leftVerticalMenu" id="mainDashboard">
+                        <nav class="verticalNavbar themeColor">
+                            <a href="#">LOGO</a>
+                            <span class="closeAsideNav">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                            <span class="openAsideNav">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                        </nav>
+                
+                        <!--======================sick-setting======================-->
+                        <section class="visit">        
         <div class="container">
-            <div class="row my-3">
-                <div class="col">
-                    <h4>Chart</h4>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chart"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row my-2">
+            <!-- <div class="row my-2">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
@@ -20,9 +72,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        </div> 
+                        </section>
+                </div>
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+        <script src="script.js"></script>  
+        <script src="assets/js/bootstrap.min.js"></script>
     </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-    <script src="script.js"></script>
 </html>

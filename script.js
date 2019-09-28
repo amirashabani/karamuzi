@@ -4,6 +4,16 @@ let chartData = {
     datasets: []
 }
 
+let r = {
+    protocol: 'http',
+    domain: '217.218.215.67',
+    port: '6649',
+    path: 'timeline/root',
+    start: '2017-05-01',
+    end: '2019-05-01',
+    step: '7'
+}
+
 function draw_chart(url) {
     fetch(url)
     .then((resp) => resp.json())
@@ -70,3 +80,32 @@ function clicked(c) {
 
 let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
 draw_chart(url)
+
+$(".closeAsideNav i").click(function () {
+    $(".asideNavbar").removeClass("openAsideNavbar");
+    $(".mainDashboard").removeClass("leftVerticalMenu");
+    $(".asideNavbar").addClass("closeAsideNavbar");
+    $(".mainDashboard").addClass("wideVerticalMenu");
+  });
+  
+  $(".openAsideNav i").click(function () {
+    $(".asideNavbar").removeClass("closeAsideNavbar");
+    $(".mainDashboard").removeClass("wideVerticalMenu");
+    $(".asideNavbar").addClass("openAsideNavbar");
+    $(".mainDashboard").addClass("leftVerticalMenu");
+  });
+  
+  $(".closeAsideNav i").click(function () {
+    $(".asideNavbar").removeClass("openAsideNavbar");
+    $(".mainDashboard").removeClass("leftVerticalMenu");
+    $(".asideNavbar").addClass("closeAsideNavbar");
+    $(".mainDashboard").addClass("wideVerticalMenu");
+  });
+  
+  $(".asideNavbarItems li a").click(function () {
+    $(".asideNavbar").removeClass("closeAsideNavbar");
+    $(".mainDashboard").removeClass("wideVerticalMenu");
+    $(".asideNavbar").addClass("openAsideNavbar");
+    $(".mainDashboard").addClass("leftVerticalMenu");
+  });
+  
