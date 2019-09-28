@@ -1,5 +1,3 @@
-const api_url = 'url';
-
 let colors = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'];
 let chart = document.getElementById("chart");
 let chartData = {
@@ -57,9 +55,14 @@ function draw_chart(url) {
     )
 }
 
+function create_url(protocol, domain, port, path, start, end, step) {
+    return `${protocol}://${domain}:${port}/${path}?start=${start}&end=${end}&step=${step}`
+}
+
 function clicked(c) {
     let index = this.getElementAtEvent(c)[0]['_datasetIndex']
     console.log(chartData['datasets'][index]['label'])
 }
 
-draw_chart(api_url)
+let url = create_url()
+draw_chart(url)
