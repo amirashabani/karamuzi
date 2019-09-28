@@ -11,6 +11,8 @@ function draw_chart(url) {
         function(data) {
             chartData['labels'] = data['dates']
 
+            chartData['datasets'] = []
+
             data['topics'].forEach(function(value, i) {
                 chartData['datasets'].push({
                     label: value['title'],
@@ -61,8 +63,10 @@ function create_url(protocol, domain, port, path, start, end, step) {
 
 function clicked(c) {
     let index = this.getElementAtEvent(c)[0]['_datasetIndex']
-    console.log(chartData['datasets'][index]['label'])
+    r['path'] = `${r['path']}-${index}`
+    let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
+    draw_chart(url)
 }
 
-let url = create_url()
+let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
 draw_chart(url)
