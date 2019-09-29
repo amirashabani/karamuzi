@@ -72,10 +72,14 @@ function create_url(protocol, domain, port, path, start, end, step) {
 }
 
 function clicked(c) {
-    let index = this.getElementAtEvent(c)[0]['_datasetIndex']
-    r['path'] = `${r['path']}-${index}`
-    let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
-    draw_chart(url)
+    let element = this.getElementAtEvent(c)[0]
+    if((typeof element) !== "undefined") {
+        console.log(typeof element)
+        let index = element['_datasetIndex']
+        r['path'] = `${r['path']}-${index}`
+        let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
+        draw_chart(url)
+    }
 }
 
 let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
