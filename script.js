@@ -73,7 +73,7 @@ function create_url(protocol, domain, port, path, start, end, step) {
 
 function clicked(c) {
     let element = this.getElementAtEvent(c)[0]
-    if((typeof element) !== "undefined") {
+    if ((typeof element) !== "undefined") {
         console.log(typeof element)
         let index = element['_datasetIndex']
         r['path'] = `${r['path']}-${index}`
