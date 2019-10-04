@@ -50,7 +50,8 @@ function draw_chart(url) {
                             legend: {
                                 position: 'top',
                                 labels: {
-                                    boxWidth: 5
+                                    boxWidth: 5,
+                                    usePointStyle: true
                                 }
                             },
                             events: ['click'],
