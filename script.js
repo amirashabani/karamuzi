@@ -11,7 +11,7 @@ let r = {
     path: 'timeline/root',
     start: '2017-05-01',
     end: '2019-05-01',
-    step: '7'
+    step: '30'
 }
 
 function draw_chart(url) {
