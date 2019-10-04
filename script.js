@@ -54,7 +54,7 @@ function draw_chart(url) {
                                     usePointStyle: true
                                 }
                             },
-                            events: ['click'],
+                            events: ['click', 'mousemove'],
                             onClick: clicked,
                             pan: {
                                 enabled: true,
