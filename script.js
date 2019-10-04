@@ -62,7 +62,7 @@ function draw_chart(url) {
 
                             zoom: {
                                 enabled: true,
-                                mode: 'x',
+                                mode: 'x'
                             }
                         }
                     });
