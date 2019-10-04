@@ -54,7 +54,16 @@ function draw_chart(url) {
                                 }
                             },
                             events: ['click'],
-                            onClick: clicked
+                            onClick: clicked,
+                            pan: {
+                                enabled: true,
+                                mode: 'x'
+                            },
+
+                            zoom: {
+                                enabled: true,
+                                mode: 'x',
+                            }
                         }
                     });
                 }
