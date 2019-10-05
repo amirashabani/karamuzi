@@ -27,9 +27,10 @@ function draw_chart(url) {
                     chart_data['datasets'].push({
                         label: value['title'],
                         data: value['points'],
-                        backgroundColor: 'transparent',
+                        backgroundColor: colors[i],
                         borderColor: colors[i],
                         borderWidth: 1,
+                        fill: false,
                         pointBackgroundColor: colors[i]
 
                     })
