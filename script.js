@@ -1,6 +1,6 @@
 let colors = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'];
 let chart = document.getElementById("chart");
-let chartData = {
+let chart_data = {
     datasets: []
 }
 
@@ -19,12 +19,12 @@ function draw_chart(url) {
         .then((resp) => resp.json())
         .then(
             function (data) {
-                chartData['labels'] = data['dates']
+                chart_data['labels'] = data['dates']
 
-                chartData['datasets'] = []
+                chart_data['datasets'] = []
 
                 data['topics'].forEach(function (value, i) {
-                    chartData['datasets'].push({
+                    chart_data['datasets'].push({
                         label: value['title'],
                         data: value['points'],
                         backgroundColor: 'transparent',
@@ -38,7 +38,7 @@ function draw_chart(url) {
                 if (chart) {
                     new Chart(chart, {
                         type: 'line',
-                        data: chartData,
+                        data: chart_data,
                         options: {
                             scales: {
                                 yAxes: [{
@@ -83,13 +83,10 @@ function create_url(protocol, domain, port, path, start, end, step) {
 
 function clicked(c) {
     let element = this.getElementAtEvent(c)[0]
-    if ((typeof element) !== "undefined") {
-        console.log(typeof element)
-        let index = element['_datasetIndex']
-        r['path'] = `${r['path']}-${index}`
-        let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
-        draw_chart(url)
-    }
+    let index = element['_datasetIndex']
+    r['path'] = `${r['path']}-${index}`
+    let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
+    draw_chart(url)
 }
 
 let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
