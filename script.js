@@ -42,6 +42,11 @@ function draw_chart(url) {
                         data: chart_data,
                         options: {
                             scales: {
+                                xAxes: [{
+                                    ticks: {
+                                        maxRotation: 90
+                                    }
+                                }],
                                 yAxes: [{
                                     ticks: {
                                         beginAtZero: false
