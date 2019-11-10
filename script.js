@@ -4,7 +4,7 @@ let chart_data = {
     datasets: []
 }
 
-let r = {
+let r_tl = { // request for timeline
     protocol: 'http',
     domain: '217.218.215.67',
     port: '6649',
@@ -12,6 +12,15 @@ let r = {
     start: '2017-05-01',
     end: '2019-05-01',
     step: '30'
+}
+
+let r_wc = { // request for wordcloud
+    protocol: 'http',
+    domain: '217.218.215.67',
+    port: '6649',
+    path: 'wordcloud/root',
+    start: '2017-05-01',
+    end: '2017-6-01'
 }
 
 function draw_chart(url) {
@@ -90,12 +99,12 @@ function create_url(protocol, domain, port, path, start, end, step) {
 function clicked(c) {
     let element = this.getElementAtEvent(c)[0]
     let index = element['_datasetIndex']
-    r['path'] = `${r['path']}-${index}`
-    let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
+    r_tl['path'] = `${r_tl['path']}-${index}`
+    let url = create_url(r_tl['protocol'],r_tl['domain'],r_tl['port'],r_tl['path'],r_tl['start'],r_tl['end'],r_tl['step'])
     draw_chart(url)
 }
 
-let url = create_url(r['protocol'], r['domain'], r['port'], r['path'], r['start'], r['end'], r['step'])
+let url = create_url(r_tl['protocol'],r_tl['domain'],r_tl['port'],r_tl['path'],r_tl['start'],r_tl['end'],r_tl['step'])
 draw_chart(url)
 
 $(".closeAsideNav i").click(function () {
