@@ -9,9 +9,11 @@ let r_tl = { // request for timeline
     domain: '217.218.215.67',
     port: '6649',
     path: 'timeline/root',
-    start: '2017-05-01',
-    end: '2019-05-01',
-    step: '30'
+    options: {
+        start: '2017-05-01',
+        end: '2019-05-01',
+        step: '30'
+    }
 }
 
 let r_wc = { // request for wordcloud
@@ -19,8 +21,10 @@ let r_wc = { // request for wordcloud
     domain: '217.218.215.67',
     port: '6649',
     path: 'wordcloud/root',
-    start: '2017-05-01',
-    end: '2017-6-01'
+    options: {
+        start: '2017-05-01',
+        end: '2017-6-01'
+    }
 }
 
 function draw_chart(url) {
@@ -92,8 +96,19 @@ function draw_chart(url) {
         )
 }
 
-function create_url(protocol, domain, port, path, start, end, step) {
-    return `${protocol}://${domain}:${port}/${path}?start=${start}&end=${end}&step=${step}`
+function create_url(r) {
+    let result = `${r["protocol"]}://${r["domain"]}:${r["port"]}/${r["path"]}`
+    let options = r["options"]
+    if(options) {
+        result += '?'
+        for(let key in options) {
+            if(options.hasOwnProperty(key))
+            result += `${key}=${options[key]}&`
+        }
+
+        result = result.slice(0, -1)
+    }
+    return result
 }
 
 function clicked(c) {
@@ -104,8 +119,9 @@ function clicked(c) {
     draw_chart(url)
 }
 
-let url = create_url(r_tl['protocol'],r_tl['domain'],r_tl['port'],r_tl['path'],r_tl['start'],r_tl['end'],r_tl['step'])
-draw_chart(url)
+let url = create_url(r_tl)
+console.log(url)
+// draw_chart(url)
 
 $(".closeAsideNav i").click(function () {
     $(".asideNavbar").removeClass("openAsideNavbar");
