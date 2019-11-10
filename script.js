@@ -27,6 +27,16 @@ let r_wc = { // request for wordcloud
     }
 }
 
+function draw_wordcloud(url) {
+    fetch(url)
+        .then((resp) => resp.json())
+        .then(
+            function(data) {
+                console.log(data)
+            }
+    )
+}
+
 function draw_chart(url) {
     fetch(url)
         .then((resp) => resp.json())
@@ -120,8 +130,10 @@ function clicked(c) {
 }
 
 let url = create_url(r_tl)
-console.log(url)
-// draw_chart(url)
+draw_chart(url)
+
+url = create_url(r_wc)
+draw_wordcloud(url)
 
 $(".closeAsideNav i").click(function () {
     $(".asideNavbar").removeClass("openAsideNavbar");
