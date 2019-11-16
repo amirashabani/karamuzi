@@ -39,7 +39,7 @@ body {
   font-size: 16px;
   width: 100%; 
   max-width: 100% !important;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 div[class*="col-"] {
@@ -816,9 +816,17 @@ header .form-inline {
 /* ====================== Start Visit Online ====================== */
 
 .visit {
-  padding: 80px 20px;
+  padding: 80px 0;
+  overflow: hidden;
 }
 
 .hidden {
   display: none;
+}
+
+.methods {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 25px;
 }
