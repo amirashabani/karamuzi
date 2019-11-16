@@ -135,12 +135,14 @@ draw_chart(url)
 url = create_url(r_wc)
 draw_wordcloud(url)
 
-$("#chart_option").click(function() {
-    console.log('Show chart')
+$("#chart-option").click(function() {
+    $("#chart-div").removeClass('hidden')
+    $("#wordcloud-div").addClass('hidden')
 })
 
-$("#wordcloud_option").click(function() {
-    console.log('Show wordcloud')
+$("#wordcloud-option").click(function() {
+    $("#chart-div").addClass('hidden')
+    $("#wordcloud-div").removeClass('hidden')
 })
 
 $(".closeAsideNav i").click(function () {

@@ -818,3 +818,7 @@ header .form-inline {
 .visit {
   padding: 80px 20px;
 }
+
+.hidden {
+  display: none;
+}
