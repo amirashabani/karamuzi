@@ -32,7 +32,7 @@ function draw_wordcloud(url) {
         .then((resp) => resp.json())
         .then(
             function(data) {
-                console.log(data)
+                // console.log(data)
             }
     )
 }
@@ -134,6 +134,14 @@ draw_chart(url)
 
 url = create_url(r_wc)
 draw_wordcloud(url)
+
+$("#chart_option").click(function() {
+    console.log('Show chart')
+})
+
+$("#wordcloud_option").click(function() {
+    console.log('Show wordcloud')
+})
 
 $(".closeAsideNav i").click(function () {
     $(".asideNavbar").removeClass("openAsideNavbar");
