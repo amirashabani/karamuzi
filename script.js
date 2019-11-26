@@ -70,12 +70,10 @@ function draw_wordcloud(url) {
             let top_ten_words_from_api = words_list.slice(0, 10)
 
             let layout = cloud()
-                .size([500, 500])
+                .size([800, 500])
                 .words(top_ten_words_from_api)
                 .padding(5)
-                .rotate(function () {
-                    return ~~(Math.random() * 2) * 90;
-                })
+                .rotate(0)
                 .font("Impact")
                 .fontSize(function (d) {
                     return d.size;
