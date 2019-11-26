@@ -67,47 +67,11 @@ function draw_wordcloud(url) {
                 });
             }
 
-            top_ten_words = [{
-                    text: "تئاتر",
-                    size: 60.83632993941593
-                },
-                {
-                    text: "بازیگر",
-                    size: 51.61183191236724
-                },
-                {
-                    text: "هنرمند",
-                    size: 33.14581325884296
-                },
-                {
-                    text: "نمایش",
-                    size: 30.25039526965043
-                },
-                {
-                    text: "سینما",
-                    size: 28.185296904984472
-                },
-                {
-                    text: "تئاتربازها",
-                    size: 26.324319359248793
-                },
-                {
-                    text: "تلویزیون",
-                    size: 20.24662821229867
-                },
-                {
-                    text: "کارگردان",
-                    size: 19.164668240621438
-                },
-                {
-                    text: "هنرپیشه",
-                    size: 19.124779263642942
-                }
-            ]
+            let top_ten_words_from_api = words_list.slice(0, 10)
 
             let layout = cloud()
                 .size([500, 500])
-                .words(top_ten_words)
+                .words(top_ten_words_from_api)
                 .padding(5)
                 .rotate(function () {
                     return ~~(Math.random() * 2) * 90;
