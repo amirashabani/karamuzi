@@ -121,7 +121,7 @@ function draw_wordcloud(url) {
             layout.start();
 
             function draw(words) {
-                d3.select("word-cloud").append("svg")
+                d3.select("#word-cloud").append("svg")
                     .attr("width", layout.size()[0])
                     .attr("height", layout.size()[1])
                     .append("g")
