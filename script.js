@@ -67,11 +67,9 @@ function draw_wordcloud(url) {
                 });
             }
 
-            let top_ten_words_from_api = words_list.slice(0, 10)
-
             let layout = cloud()
                 .size([800, 500])
-                .words(top_ten_words_from_api)
+                .words(words_list)
                 .padding(5)
                 .rotate(0)
                 .font("Impact")
