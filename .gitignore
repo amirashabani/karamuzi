@@ -1,2 +1,5 @@
 # api address
 api_url.txt
+
+# node modules 
+/node_modules
