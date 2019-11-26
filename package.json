@@ -25,7 +25,8 @@
   "dependencies": {
     "d3": "^5.14.2",
     "d3-dispatch": "^1.0.3",
-    "shell-quote": ">=1.6.1"
+    "shell-quote": ">=1.6.1",
+    "minimatch": ">=3.0.2"
   },
   "devDependencies": {
     "browserify": "^11.2.0"
