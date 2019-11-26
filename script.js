@@ -59,7 +59,7 @@ function draw_wordcloud(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(function (data) {
-            words_list = [];
+            let words_list = [];
             for (key in data) {
                 words_list.push({
                     text: key,
