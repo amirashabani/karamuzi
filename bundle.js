@@ -25596,7 +25596,8 @@ function clicked(c) {
         r_tl["end"],
         r_tl["step"]
     );
-    draw_chart(url);
+    // draw_chart(url);
+    alert(state);
 }
 
 function number_to_persian(string) {
@@ -25620,9 +25621,11 @@ function change_method() {
     state = cursor_image.src.split("/").pop();
     if(state === "cursor.png") {
         cursor_image.src = "assets/img/hand.png";
+        state = "hand.png";
         $("#chart-div").addClass("pointer");
     } else if(state === "hand.png") {
         cursor_image.src = "assets/img/cursor.png";
+        state = "cursor.png";
         $("#chart-div").removeClass("pointer");
     }
 }
