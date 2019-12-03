@@ -25448,6 +25448,8 @@ let chart_data = {
     datasets: []
 };
 
+Chart.defaults.global.defaultFontFamily = "Shabnam";
+
 let r_tl = {
     // request for timeline
     protocol: "http",
