@@ -1,5 +1,6 @@
 let d3 = require("d3");
 let cloud = require(".");
+let moment = require("moment-jalaali")
 
 let colors = [
     "#e6194b",
@@ -108,7 +109,7 @@ function draw_chart(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(function (data) {
-            chart_data["labels"] = data["dates"];
+            chart_data["labels"] = convert_to_jalaali(data["dates"]);
 
             chart_data["datasets"] = [];
 
@@ -196,6 +197,17 @@ function clicked(c) {
         r_tl["step"]
     );
     draw_chart(url);
+}
+
+function convert_to_jalaali(dates) {
+    let converted = [];
+
+    dates.forEach((value, i) => {
+        let date = moment(value)
+        converted.push(date.format("jYYYY-jMM-jDD"))
+    })
+
+    return converted;
 }
 
 let url = create_url(r_tl);
