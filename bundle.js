@@ -25415,35 +25415,14 @@ function mod(a, b) {
 })));
 
 },{}],37:[function(require,module,exports){
-let d3 = require("d3");
-let cloud = require(".");
-let moment = require("moment-jalaali")
+const d3 = require("d3");
+const cloud = require(".");
+const moment = require("moment-jalaali");
 
-let colors = [
-    "#808080",
-    "#000000",
-    "#e6194b",
-    "#3cb44b",
-    "#ffe119",
-    "#4363d8",
-    "#f58231",
-    "#911eb4",
-    "#46f0f0",
-    "#f032e6",
-    "#bcf60c",
-    "#fabebe",
-    "#008080",
-    "#e6beff",
-    "#9a6324",
-    "#fffac8",
-    "#800000",
-    "#aaffc3",
-    "#808000",
-    "#ffd8b1",
-    "#000075",
-    "#ffffff"
-    
-];
+let colors = ["#808080", "#000000", "#e6194b", "#3cb44b", "#ffe119", "#4363d8", "#f58231",
+"#911eb4", "#46f0f0", "#f032e6", "#bcf60c", "#fabebe", "#008080", "#e6beff", "#9a6324",
+"#fffac8", "#800000", "#aaffc3", "#808000", "#ffd8b1", "#000075", "#ffffff"];
+
 let chart = document.getElementById("chart");
 let chart_data = {
     datasets: []
@@ -25451,8 +25430,7 @@ let chart_data = {
 
 Chart.defaults.global.defaultFontFamily = "Shabnam";
 
-let r_tl = {
-    // request for timeline
+let r_tl = {	// request for timeline
     protocol: "http",
     domain: "217.218.215.67",
     port: "6649",
@@ -25464,8 +25442,7 @@ let r_tl = {
     }
 };
 
-let r_wc = {
-    // request for wordcloud
+let r_wc = {	// request for wordcloud
     protocol: "http",
     domain: "217.218.215.67",
     port: "6649",
