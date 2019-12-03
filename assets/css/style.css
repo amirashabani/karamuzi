@@ -844,3 +844,6 @@ header .form-inline {
   margin-bottom: 25px;
 }
 
+.pointer {
+  cursor: pointer;
+}
