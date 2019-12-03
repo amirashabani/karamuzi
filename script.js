@@ -3,6 +3,8 @@ let cloud = require(".");
 let moment = require("moment-jalaali")
 
 let colors = [
+    "#808080",
+    "#000000",
     "#e6194b",
     "#3cb44b",
     "#ffe119",
@@ -22,9 +24,8 @@ let colors = [
     "#808000",
     "#ffd8b1",
     "#000075",
-    "#808080",
-    "#ffffff",
-    "#000000"
+    "#ffffff"
+    
 ];
 let chart = document.getElementById("chart");
 let chart_data = {
