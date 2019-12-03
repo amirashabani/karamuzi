@@ -199,12 +199,18 @@ function clicked(c) {
     draw_chart(url);
 }
 
+function number_to_persian(string) {
+    const persian_digits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']
+
+    return string.toString().replace(/\d/g, x => persian_digits[x])
+}
+
 function convert_to_jalaali(dates) {
     let converted = [];
 
     dates.forEach((value, i) => {
-        let date = moment(value)
-        converted.push(date.format("jYYYY-jMM-jDD"))
+        let date = moment(value);
+        converted.push(number_to_persian(date.format("jYYYY-jMM-jDD")));
     })
 
     return converted;
