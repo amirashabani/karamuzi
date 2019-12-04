@@ -25585,25 +25585,29 @@ function create_url(r) {
 
 function clicked(c) {
     let element = this.getElementAtEvent(c)[0];
-    let index = element["_datasetIndex"];
-    r_tl["path"] = `${r_tl["path"]}-${index}`;
-    let url = create_url(
-        r_tl["protocol"],
-        r_tl["domain"],
-        r_tl["port"],
-        r_tl["path"],
-        r_tl["start"],
-        r_tl["end"],
-        r_tl["step"]
-    );
-    // draw_chart(url);
-    alert(state);
+    let dataset_index = element["_datasetIndex"];
+    let index = element["_index"];
+
+    let selected_date = chart_data["labels"][index];
+    let selected_chart = chart_data["datasets"][dataset_index]["label"];
+
+    let r = r_tl;
+    r["path"] += `-${dataset_index}`;
+
+    // console.log(create_url(r));
+    draw_chart(create_url(r));
 }
 
 function number_to_persian(string) {
-    const persian_digits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']
+    const persian_digits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 
-    return string.toString().replace(/\d/g, x => persian_digits[x])
+    return string.toString().replace(/\d/g, x => persian_digits[x]);
+}
+
+function number_to_english(string) {
+    const persian_digits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+    return string.toString().replace(/[۰۱۲۳۴۵۶۷۸۹]/g, x => persian_digits.indexOf(x));
 }
 
 function convert_to_jalaali(dates) {
