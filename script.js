@@ -174,11 +174,17 @@ function clicked(c) {
     let selected_date = chart_data["labels"][index];
     let selected_chart = chart_data["datasets"][dataset_index]["label"];
 
-    let r = r_tl;
-    r["path"] += `-${dataset_index}`;
-
-    // console.log(create_url(r));
-    draw_chart(create_url(r));
+    if(state === "cursor.png") {
+        let r = r_tl;
+        r["path"] += `-${dataset_index}`;
+    
+        draw_chart(create_url(r));
+        $("#chart-div").removeClass("hidden");
+        $("#wordcloud-div").addClass("hidden");
+    } else if(state === "hand.png") {
+        $("#chart-div").addClass("hidden");
+        $("#wordcloud-div").removeClass("hidden");
+    }
 }
 
 function number_to_persian(string) {
@@ -227,15 +233,6 @@ $("#method-indicator").click(function() {
     change_method();
 })
 
-$("#chart-option").click(function () {
-    $("#chart-div").removeClass("hidden");
-    $("#wordcloud-div").addClass("hidden");
-});
-
-$("#wordcloud-option").click(function () {
-    $("#chart-div").addClass("hidden");
-    $("#wordcloud-div").removeClass("hidden");
-});
 
 $(".closeAsideNav i").click(function () {
     $(".asideNavbar").removeClass("openAsideNavbar");
