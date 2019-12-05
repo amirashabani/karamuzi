@@ -25559,7 +25559,8 @@ function draw_chart(url) {
                             position: "top",
                             labels: {
                                 boxWidth: 5,
-                                usePointStyle: true
+                                usePointStyle: true,
+                                padding: 10
                             }
                         },
                         events: ["click", "mousemove"],
