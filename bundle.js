@@ -25468,7 +25468,7 @@ function draw_wordcloud(url) {
                 });
             }
 
-            let words_scale = 
+            let words_scale =
                 d3.scaleLinear()
                 .range([0, 100])
                 .domain(
@@ -25479,7 +25479,7 @@ function draw_wordcloud(url) {
                 )
 
             let layout = cloud()
-                .size([800, 500])
+                .size([1044, 500])
                 .words(words_list)
                 .padding(5)
                 .rotate(0)

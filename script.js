@@ -62,7 +62,7 @@ function draw_wordcloud(url) {
                 )
 
             let layout = cloud()
-                .size([800, 500])
+                .size([1044, 500])
                 .words(words_list)
                 .padding(5)
                 .rotate(0)
