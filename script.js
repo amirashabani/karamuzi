@@ -212,6 +212,7 @@ function clicked(c) {
 
         $("#chart-div").addClass("hidden");
         $("#wordcloud-div").removeClass("hidden");
+        cursor_image.src = "assets/img/back.png";
     }
 }
 
@@ -248,6 +249,11 @@ function change_method() {
         cursor_image.src = "assets/img/cursor.png";
         state = "cursor.png";
         $("#chart-div").removeClass("pointer");
+    } else if(state === "back.png") {
+        cursor_image.src = "assets/img/hand.png";
+        state = "hand.png";
+        $("#chart-div").removeClass("hidden");
+        $("#wordcloud-div").addClass("hidden");
     }
 }
 
