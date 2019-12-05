@@ -25468,6 +25468,16 @@ function draw_wordcloud(url) {
                 });
             }
 
+            let words_scale = 
+                d3.scaleLinear()
+                .range([0, 100])
+                .domain(
+                    [
+                        d3.min(words_list, function(d) {return d.size;}),
+                        d3.max(words_list, function(d) {return d.size;})
+                    ]
+                )
+
             let layout = cloud()
                 .size([800, 500])
                 .words(words_list)
@@ -25475,7 +25485,7 @@ function draw_wordcloud(url) {
                 .rotate(0)
                 .font("Impact")
                 .fontSize(function (d) {
-                    return d.size;
+                    return words_scale(d.size);
                 })
                 .on("end", draw);
 
@@ -25596,6 +25606,8 @@ function clicked(c) {
         r["path"] += `-${dataset_index}`;
     
         draw_chart(create_url(r));
+        $("#chart-div").removeClass("hidden");
+        $("#wordcloud-div").addClass("hidden");
     } else if(state === "hand.png") {
         $("#chart-div").addClass("hidden");
         $("#wordcloud-div").removeClass("hidden");
@@ -25648,10 +25660,6 @@ $("#method-indicator").click(function() {
     change_method();
 })
 
-$("#chart-option").click(function () {
-    $("#chart-div").removeClass("hidden");
-    $("#wordcloud-div").addClass("hidden");
-});
 
 $(".closeAsideNav i").click(function () {
     $(".asideNavbar").removeClass("openAsideNavbar");

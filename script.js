@@ -51,6 +51,16 @@ function draw_wordcloud(url) {
                 });
             }
 
+            let words_scale =
+                d3.scaleLinear()
+                .range([0, 100])
+                .domain(
+                    [
+                        d3.min(words_list, function(d) {return d.size;}),
+                        d3.max(words_list, function(d) {return d.size;})
+                    ]
+                )
+
             let layout = cloud()
                 .size([800, 500])
                 .words(words_list)
@@ -58,7 +68,7 @@ function draw_wordcloud(url) {
                 .rotate(0)
                 .font("Impact")
                 .fontSize(function (d) {
-                    return d.size;
+                    return words_scale(d.size);
                 })
                 .on("end", draw);
 
