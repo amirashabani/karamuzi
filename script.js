@@ -193,9 +193,23 @@ function clicked(c) {
         r["path"] += `-${dataset_index}`;
     
         draw_chart(create_url(r));
+
         $("#chart-div").removeClass("hidden");
         $("#wordcloud-div").addClass("hidden");
     } else if(state === "hand.png") {
+        selected_date_gregorian = moment(number_to_english(selected_date), "jYYYY-jMM-jDD");
+
+        end_date = selected_date_gregorian.format("YYYY-MM-DD");
+        start_date = selected_date_gregorian.subtract(Number(r_tl["options"]["step"]), "days").format("YYYY-MM-DD");
+
+        let r = r_wc;
+        r["options"]["start"] = start_date;
+        r["options"]["end"] = end_date;
+
+        $("#word-cloud svg").remove();
+
+        draw_wordcloud(create_url(r));
+
         $("#chart-div").addClass("hidden");
         $("#wordcloud-div").removeClass("hidden");
     }
