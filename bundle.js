@@ -25468,6 +25468,8 @@ function draw_wordcloud(url) {
                 });
             }
 
+            let words_color = d3.scaleOrdinal(d3.schemeCategory10);
+
             let words_scale =
                 d3.scaleLinear()
                 .range([0, 100])
@@ -25504,6 +25506,7 @@ function draw_wordcloud(url) {
                         return d.size + "px";
                     })
                     .style("font-family", "Impact")
+                    .style("fill", function(d, i) {return words_color(i);})
                     .attr("text-anchor", "middle")
                     .attr("transform", function (d) {
                         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
