@@ -25560,7 +25560,12 @@ function draw_chart(url) {
                             labels: {
                                 boxWidth: 5,
                                 usePointStyle: true,
-                                padding: 10
+                                padding: 25
+                            }
+                        },
+                        layout: {
+                            padding: {
+                                top: -15
                             }
                         },
                         events: ["click", "mousemove"],
