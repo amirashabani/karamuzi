@@ -23,7 +23,7 @@
     "build": "mkdir -p build && browserify --standalone d3.layout.cloud index.js > build/d3.layout.cloud.js"
   },
   "dependencies": {
-    "d3": "^5.14.2",
+    "d3": "^7.6.1",
     "d3-dispatch": "^1.0.3",
     "minimatch": ">=3.0.2",
     "moment-jalaali": "^0.9.1",
